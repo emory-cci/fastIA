@@ -1,4 +1,4 @@
-
+add_subdirectory(common)
 
 set(NS_FEATURES OFF CACHE BOOL "Building Features Extraction")
 set(NS_SEGMENT OFF CACHE BOOL "Building Segmentation")
@@ -13,7 +13,7 @@ if(NS_FEATURES OR NS_SEGMENT)
     #message(STATUS "openCV lib = ${OpenCV_LIBS}")
     
     #### CUDA
-    #set(USE_CUDA OFF CACHE BOOL "Include NVidia Cuda Runtime support")
+    set(USE_CUDA OFF CACHE BOOL "Include NVidia Cuda Runtime support")
     if(USE_CUDA)
         find_package(CUDA 4.0)
         
@@ -43,8 +43,3 @@ if (NS_SEGMENT)
 endif(NS_SEGMENT)
 
 
-if(BUILD_EXAMPLE_APPLICATIONS)
-    if(NS_SEGMENT) 
-    	add_subdirectory(runtime-examples)
-    endif(NS_SEGMENT)
-endif(BUILD_EXAMPLE_APPLICATIONS)
